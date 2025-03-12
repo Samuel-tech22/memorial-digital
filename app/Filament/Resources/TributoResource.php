@@ -224,6 +224,17 @@ class TributoResource extends Resource
             'index' => Pages\ListTributos::route('/'),
             'create' => Pages\CreateTributo::route('/create'),
             'edit' => Pages\EditTributo::route('/{record}/edit'),
+            'map' => Pages\MapTributos::route('/map'),
         ];
+    }
+    
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::where('aprobado', false)->count() ?: null;
+    }
+    
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'warning';
     }
 } 

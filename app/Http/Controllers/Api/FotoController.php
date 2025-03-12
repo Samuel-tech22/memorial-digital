@@ -26,6 +26,7 @@ class FotoController extends Controller
             }
             
             $fotos = $memorial->fotos()
+                             ->where('activo', true)
                              ->orderBy('orden')
                              ->get();
             
@@ -56,6 +57,7 @@ class FotoController extends Controller
         }
         
         return $memorial->fotos()
+                        ->where('activo', true)
                         ->orderBy('orden')
                         ->get();
     }
